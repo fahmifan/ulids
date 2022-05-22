@@ -1,6 +1,8 @@
 # ULIDs ![goreportcard](https://goreportcard.com/badge/github.com/fahmifan/ulids)
 
-ULIDs support null ULID & store ULID as string to DB. It wraps the [github.com/oklog/ulid](github.com/oklog/ulid) & insipred by the [github.com/guregu/null](github.com/guregu/null) library.
+> ULIDs support null ULID & store ULID as string to DB. 
+
+By default, the `ulid.ULID` is stored as binary, and it is hard to query it in DBMS, that's why I make this little helper that wraped the [github.com/oklog/ulid](github.com/oklog/ulid) to store `ulid.ULID` as string to DB. Also, I'd like to avoid pointer in struct if possible, insipred by the [github.com/guregu/null](github.com/guregu/null) library, I added a `Null` type that can store `ulid.ULID` as `NULL` in DB and also supported null `JSON`.
 
 ## Install
 ```
