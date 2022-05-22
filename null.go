@@ -26,7 +26,7 @@ func NullFrom(uid ULID) Null {
 }
 
 // Value implements driver.Valuer
-func (n *Null) Value() (driver.Value, error) {
+func (n Null) Value() (driver.Value, error) {
 	if !n.Valid {
 		return nil, nil
 	}

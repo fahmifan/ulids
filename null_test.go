@@ -1,6 +1,8 @@
 package ulids
 
 import (
+	"database/sql"
+	"database/sql/driver"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -10,6 +12,9 @@ import (
 )
 
 func TestNull(t *testing.T) {
+	var _ driver.Valuer = &Null{}
+	var _ sql.Scanner = &Null{}
+
 	t.Run("valid json", func(t *testing.T) {
 		null := NullFrom(New())
 		bt, err := json.Marshal(null)
