@@ -4,6 +4,7 @@ go 1.17
 
 require (
 	github.com/oklog/ulid v1.3.1
+	github.com/oklog/ulid/v2 v2.0.2
 	github.com/stretchr/testify v1.7.1
 )
 

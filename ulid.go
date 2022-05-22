@@ -5,7 +5,7 @@ import (
 	"database/sql/driver"
 	"time"
 
-	"github.com/oklog/ulid"
+	"github.com/oklog/ulid/v2"
 )
 
 // ULID save the github.com/oklog/ulid.ULID as string in database.

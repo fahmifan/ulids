@@ -4,7 +4,7 @@ import (
 	"database/sql/driver"
 	"testing"
 
-	"github.com/oklog/ulid"
+	"github.com/oklog/ulid/v2"
 	"github.com/stretchr/testify/require"
 )
 
