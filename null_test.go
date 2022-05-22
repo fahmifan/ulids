@@ -83,4 +83,19 @@ func TestNull(t *testing.T) {
 		require.Equal(t, uid.String(), mock2.ID.String())
 		require.Equal(t, "john doe", mock2.Name)
 	})
+
+	t.Run("nil driver", func(t *testing.T) {
+		null := Null{}
+		dr, err := null.Value()
+		require.NoError(t, err)
+		require.Nil(t, dr)
+	})
+
+	t.Run("string driver", func(t *testing.T) {
+		uid := New()
+		null := NullFrom(uid)
+		dr, err := null.Value()
+		require.NoError(t, err)
+		require.EqualValues(t, uid.String(), dr.(string))
+	})
 }

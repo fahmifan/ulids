@@ -22,8 +22,7 @@ func TestULIDValuer(t *testing.T) {
 	dr, err := uid.Value()
 	require.NoError(t, err)
 
-	st, ok := dr.(interface{}).(string)
-	require.True(t, ok)
+	st := dr.(string)
 	require.NotEmpty(t, st)
 	require.Equal(t, uid.String(), st)
 }
