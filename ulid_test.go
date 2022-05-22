@@ -9,11 +9,9 @@ import (
 )
 
 func TestULIDNew(t *testing.T) {
-	t.Run("should ok", func(t *testing.T) {
-		uid := New()
-		require.NotEmpty(t, uid.String())
-		require.NotEqual(t, ulid.ULID{}.String(), uid.String())
-	})
+	uid := New()
+	require.NotEmpty(t, uid.String())
+	require.NotEqual(t, ulid.ULID{}.String(), uid.String())
 }
 
 func TestULIDValuer(t *testing.T) {
