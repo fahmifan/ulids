@@ -26,3 +26,12 @@ func TestULIDValuer(t *testing.T) {
 	require.NotEmpty(t, st)
 	require.Equal(t, uid.String(), st)
 }
+
+func TestULIDParse(t *testing.T) {
+	uid := New()
+	id := uid.String()
+
+	uid2, err := Parse(id)
+	require.NoError(t, err)
+	require.Equal(t, uid, uid2)
+}

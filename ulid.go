@@ -21,6 +21,15 @@ func New() ULID {
 	return ULID{uid}
 }
 
+// Parse parse id into ULID
+func Parse(id string) (ULID, error) {
+	uid, err := ulid.Parse(id)
+	if err != nil {
+		return ULID{}, err
+	}
+	return ULID{ULID: uid}, err
+}
+
 // Value implements driver.Valuer.
 func (n ULID) Value() (driver.Value, error) {
 	return n.ULID.String(), nil
