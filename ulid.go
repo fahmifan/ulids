@@ -21,6 +21,15 @@ func New() ULID {
 	return ULID{uid}
 }
 
+// MustParse parse id into ULID, panic on error
+func MustParse(id string) ULID {
+	uid, err := Parse(id)
+	if err != nil {
+		panic(err)
+	}
+	return uid
+}
+
 // Parse parse id into ULID
 func Parse(id string) (ULID, error) {
 	uid, err := ulid.Parse(id)
