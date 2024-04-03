@@ -35,3 +35,25 @@ func TestULIDParse(t *testing.T) {
 	require.NoError(t, err)
 	require.Equal(t, uid, uid2)
 }
+
+func TestMustParse(t *testing.T) {
+	t.Run("should panic on fail to parse", func(t *testing.T) {
+		defer func() {
+			rec := recover()
+			require.Equal(t, "ulid: bad data size when unmarshaling", rec.(error).Error())
+		}()
+
+		id := MustParse("")
+		require.Empty(t, id.String())
+	})
+
+	t.Run("should OK", func(t *testing.T) {
+		defer func() {
+			rec := recover()
+			require.Empty(t, rec)
+		}()
+
+		id := MustParse(New().String())
+		require.NotEmpty(t, id.String())
+	})
+}
